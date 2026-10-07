@@ -24,7 +24,7 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t search-offer-svc ./app/search-offer-svc
+          docker build -t search-offer-svc /airline-platform/infra/terraform/app/search-offer-svc
           docker tag search-offer-svc:latest 429134228003.dkr.ecr.us-east-1.amazonaws.com/search-offer-svc:latest
           docker push 429134228003.dkr.ecr.us-east-1.amazonaws.com/search-offer-svc:latest
 
