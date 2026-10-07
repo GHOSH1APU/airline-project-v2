@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-offer-svc
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: search-offer-svc
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: search-offer-svc
+    spec:
+      serviceAccountName: app-sa
+      containers:
+      - image: 429134228003.dkr.ecr.us-east-1.amazonaws.com/search-offer-svc:latest
+        name: app
+        imagePullPolicy: Always
+        command: ["sleep", "36000"]
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
