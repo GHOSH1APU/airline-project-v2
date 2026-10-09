@@ -3,8 +3,15 @@ kind: Ingress
 metadata:
   name: airline-api-ingress
   namespace: airline-backend-prod
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/tls-acme: "true"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - api.ghoshsourav21.in
+    secretName: airline-api-tls
   rules:
   - host: api.ghoshsourav21.in
     http:
