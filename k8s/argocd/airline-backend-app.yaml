@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: airline-backend-prod
+  namespace: argo-cd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/YOUR_GITHUB_USERNAME/airline-platform.git' # 🚨 Update this with your actual GitHub repo URL!
+    path: k8s/backend
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: airline-backend-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

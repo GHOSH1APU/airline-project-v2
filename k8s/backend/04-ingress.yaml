@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: airline-api-ingress
+  namespace: airline-backend-prod
+  annotations:
+    kubernetes.io/ingress.class: "nginx" # Modify to "alb" if you are using AWS ALB Ingress Controller
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: api.ghoshsourav21.in
+    http:
+      paths:
+      - path: /search
+        pathType: Prefix
+        backend:
+          service:
+            name: flight-search-service
+            port:
+              number: 80
+      - path: /book
+        pathType: Prefix
+        backend:
+          service:
+            name: booking-management-service
+            port:
+              number: 80

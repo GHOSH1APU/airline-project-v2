@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flight-search-deployment
+  namespace: airline-backend-prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flight-search
+  template:
+    metadata:
+      labels:
+        app: flight-search
+    spec:
+      containers:
+      - name: flight-search-api
+        image: nginx:alpine # Currently using nginx as a placeholder for your Node/Java API
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flight-search-service
+  namespace: airline-backend-prod
+spec:
+  selector:
+    app: flight-search
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
