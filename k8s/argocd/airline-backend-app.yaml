@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/YOUR_GITHUB_USERNAME/airline-platform.git' # 🚨 Update this with your actual GitHub repo URL!
+    repoURL: 'https://github.com/GHOSH1APU/airline-project-v2' # 🚨 Update this with your actual GitHub repo URL!
     path: k8s/backend
     targetRevision: main
   destination:
