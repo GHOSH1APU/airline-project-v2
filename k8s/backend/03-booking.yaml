@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: booking-api
-        image: 429134228003.dkr.ecr.us-east-1.amazonaws.com/airline-api:v1 # Currently using nginx as a placeholder
+        image: 429134228003.dkr.ecr.us-east-1.amazonaws.com/airline-api:v2 # Currently using nginx as a placeholder
         ports:
         - containerPort: 80
 ---
