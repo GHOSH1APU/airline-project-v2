@@ -14,9 +14,13 @@ spec:
     spec:
       containers:
         - name: order-booking-svc
-          image: 429134228003.dkr.ecr.us-east-1.amazonaws.com/order-booking-svc:latest
+          image: 429134228003.dkr.ecr.us-east-1.amazonaws.com/order-booking-svc:v2
           ports:
             - containerPort: 8080
+
+          envFrom:
+            - configMapRef:
+                name: airline-shared-config
 ---
 apiVersion: v1
 kind: Service
