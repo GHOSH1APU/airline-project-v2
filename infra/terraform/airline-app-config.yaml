@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: airline-shared-config
+  namespace: default
+data:
+  # Database Configuration
+  DB_HOST: "airline-demo-db.cotua6amu6b8.us-east-1.rds.amazonaws.com"
+  DB_PORT: "5432"
+  DB_NAME: "airlinedb"
+  
+  # DynamoDB Configuration
+  DYNAMODB_TABLE: "airline-user-profiles"
+  DYNAMODB_REGION: "us-east-1"
+  
+  # Event-Driven Messaging (SNS)
+  AWS_REGION: "us-east-1"
+  SNS_FLIGHT_SEARCHED_TOPIC_ARN: "arn:aws:sns:us-east-1:429134228003:airline-flight-searched-topic"

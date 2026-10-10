@@ -16,7 +16,7 @@ module "vpc" {
   # bill from ~$96/month down to ~$32/month.
   enable_nat_gateway = true
   single_nat_gateway = true
-  enable_vpn_gateway = false 
+  enable_vpn_gateway = false
 
   # Automatically generates the Subnet Group required for your Aurora/RDS deployment
   create_database_subnet_group = true

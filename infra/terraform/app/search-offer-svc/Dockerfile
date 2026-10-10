@@ -1,2 +1,7 @@
-FROM docker.io/amazon/aws-cli:latest
-ENTRYPOINT ["sleep", "36000"]
+FROM node:18-alpine
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 8080
+CMD [ "node", "app.js" ]
